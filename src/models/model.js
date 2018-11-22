@@ -35,22 +35,19 @@ function deleteMovie(id){
 }
 
 function updateMovie(id, params){
-    let upString = ''
-    if(params.director) upString += `set director = '${params.director}' `
-    if(params.poster) upString += `set poster = '${params.poster}' `
-    if(params.rating) upString += `set rating = '${params.rating}' `
-    if(params.title) upString += `set title = '${params.title}' `
-    if(params.year) upString += `set year = '${params.year}'`
-    console.log(id)
-    console.log(upString)
-
+    let upString = 'set '
+    if(params.director) upString += `director = '${params.director}',`
+    if(params.poster) upString += `poster = '${params.poster}',`
+    if(params.rating) upString += `rating = '${params.rating}',`
+    if(params.title) upString += `title = '${params.title}',`
+    if(params.year) upString += `year = '${params.year}'`
+   
+    if(upString[upString.length -1] === ',') upString = upString.substring(0, upString.length -1)
 
     return knex.raw(`update movies ${upString} where id=${id}`)
     .then(function(){
         return knex('movies').select('*').where('id', id)
     })
-
-
 }
 
 module.exports = { checkMovie, getAll, createMovie, deleteMovie, updateMovie}
