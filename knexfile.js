@@ -2,8 +2,6 @@ const path = require('path')
 const herokuDB = require('./pgkeys.js')
 
 module.exports = {
-  // add the development config object here
-  // include a migrations and seeds directories
   development: {
     client: 'pg',
     connection: 'postgresql://localhost/movie_crud_dev',
