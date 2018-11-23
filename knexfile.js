@@ -12,5 +12,16 @@ module.exports = {
     seeds: {
       directory: path.join(__dirname, 'db', 'seeds')
     }
+  },
+
+  production: {
+    client: 'pg',
+    connection: 'postgresql://localhost/movie_crud_prod',
+    migrations: {
+      directory: path.join(__dirname, 'db', 'migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, 'db', 'seeds')
+    }
   }
 }
