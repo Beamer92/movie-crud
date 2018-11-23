@@ -28,5 +28,5 @@ if (process.env.NODE_ENV !== 'development') {
     let server = app.listen(port, listener)
 }
 
-https://arcane-brook-34722.herokuapp.com/
-https://git.heroku.com/arcane-brook-34722.git
+// https://arcane-brook-34722.herokuapp.com/
+// https://git.heroku.com/arcane-brook-34722.git
