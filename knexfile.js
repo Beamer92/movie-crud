@@ -1,5 +1,4 @@
 const path = require('path')
-const herokuDB = require('./pgkeys.js')
 
 module.exports = {
   development: {
@@ -15,7 +14,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: herokuDB,
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: path.join(__dirname, 'db', 'migrations')
     },
