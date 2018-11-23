@@ -1,5 +1,5 @@
 const path = require('path')
-const herokuDB = require('/pgkeys.js')
+const herokuDB = require('./pgkeys.js')
 
 module.exports = {
   // add the development config object here
