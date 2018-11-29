@@ -23,3 +23,6 @@ module.exports = {
     }
   }
 }
+
+//git push heroku master
+//heroku run knex migrate:latest
