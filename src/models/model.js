@@ -14,7 +14,7 @@ function checkMovie(movieId) {
 }
 
 function getAll(limit) {
-    return limit ? knex('movies').limit(limit) : knex('movies')
+    return limit ? knex('movies').limit(limit).orderBy('year') : knex('movies').orderBy('year')
 }
 
 function createMovie(movie) {
@@ -26,6 +26,7 @@ function createMovie(movie) {
         title: movie.title,
         year: movie.year
     })
+    .returning('*')
 }
 
 function deleteMovie(id){

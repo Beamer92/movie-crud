@@ -29,8 +29,12 @@ function createMovie(req,res,next) {
         year: req.body.year
     }
 
-    model.createMovie(newMovie).then(function(){
-        return res.status(201).send(newMovie)
+    model.createMovie(newMovie).then(function(response){
+        return res.status(201).send(response)
+    })
+    .catch(error => {
+        if(error.routine === 'ExecConstraints') next({status: 406, message: "Invalid Parameters"})
+        next(error)
     })
     
 }
@@ -51,6 +55,10 @@ function updateMovie(req,res,next){
 
     model.updateMovie(req.params.id, movieParams).then(result => {
         return res.status(202).send(result)
+    })
+    .catch(error => {
+        if(error.routine === 'ExecConstraints') next({status: 406, message: "Invalid Parameters"})
+        next(error)
     })
 }
 
