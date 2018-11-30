@@ -1,6 +1,6 @@
 const db = require('./db')
 
-db('courses')
+db('movies')
 .then((data) => {
   console.log(data)
 }).catch(() => {
